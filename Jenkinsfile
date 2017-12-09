@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                mvn clean package
+                'mvn clean package'
             }
         }
     }
