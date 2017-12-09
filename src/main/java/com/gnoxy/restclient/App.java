@@ -17,12 +17,16 @@ import javax.ws.rs.client.ClientBuilder;
 public class App {
 
     public static void main(String args[]) {
-        String ServiceURL = "http://u_dev:8080/RestServer/rest/services/";
+        String ServiceURL = "http://origin-master.maher.home/RestServer/rest/services/";
+//        String ServiceURL = "http://u_dev:8080/RestServer/rest/services/";
+
+        System.out.println("Targetting: " + ServiceURL);
 
         Client client = ClientBuilder.newClient();
 
         String helloWorldString = client.target(ServiceURL + "helloWorld") // connection to the pre-defined URL
-                .request("text/plain") // we request a "text/plain" answer
+                .request("text/html") 
+//                .request()
                 .get(String.class);
 
         System.out.println("helloWorld response: " + helloWorldString);
