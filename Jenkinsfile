@@ -1,15 +1,10 @@
 
 pipeline {
-    agent { 
-            docker {
-                image 'maven:3.3.3' 
-                args '-v /home/pmaher/.m2:/root/.m2'
-                }
-           }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'mvn clean package'
+                mvn clean package
             }
         }
     }
